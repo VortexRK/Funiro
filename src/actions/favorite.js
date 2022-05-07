@@ -1,0 +1,2 @@
+export const addToFavorite = (id, name, price, img) => ({ type: 'ADD_TO_FAVORITE', payload: {id: id, name: name, price: price, img: img, }})
+export const deleteFromFavorite = id => ({ type: 'DELETE_FAVORITE', payload: id })

@@ -1,0 +1,2 @@
+export const addToCart = (id, name, price, img, quantity) => ({ type: 'ADD_TO_CART', payload: {id, name, price, img, quantity} })
+export const deleteFromCart = id => ({ type: 'DELETE_FROM_CART', payload: id })

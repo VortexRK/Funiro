@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Content from './components/Content'
 
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={props.className}>
+      <Router>
+        <Wrapper>
+          <Header />
+          <Content />
+          <Footer />
+        </Wrapper>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+App.propTypes = {
+  className: PropTypes.string,
+}
+
+const Wrapper = styled.div`
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`
+
+export default styled(App)`
+  margin: 0 auto;
+  height: 100%;
+`
