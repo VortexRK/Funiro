@@ -138,7 +138,7 @@ export default styled(TopContent)`
   margin: 0px auto;
   background: linear-gradient(to right, #F9F1E7 60%, #FCF8F3 40%);
   overflow: hidden;
-  padding: 100px 20px 0;
+  padding: 30px 20px 0;
 
   .swiper {
     overflow: visible;

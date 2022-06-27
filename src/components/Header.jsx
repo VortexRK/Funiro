@@ -194,16 +194,17 @@ const UserIcon = styled.div`
 `
 
 export default styled(Header)`
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   padding: 20px;
-  z-index: 3;
+  z-index: 4;
+  background: linear-gradient(to right,#F9F1E7 60%,#FCF8F3 40%);
 
   @media (max-width: 767px) {
-    position: fixed;
-    background-color: #FCF8F3;
+    /* position: fixed;*/
+    /* background-color: #FCF8F3;  */
     padding: 20px 0px;
     z-index: 1000;
   }

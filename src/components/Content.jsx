@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import TopContent from './content/TopContent'
@@ -7,10 +7,8 @@ import Products from './content/Products'
 import Gallery from './content/Gallery'
 import TipsAndTricksSlider from './content/TipsAndTricksSlider'
 import BeautifullInspiration from './content/BeautifullInspiration'
-import GallerySlider from './content/GallerySlider'
 
 const Content = props => {
-  const ref = useRef(null)
   const [width, setwidth] = useState(window.innerWidth)
 
   const getWidth = () => {
@@ -30,13 +28,7 @@ const Content = props => {
       <Products />
       <BeautifullInspiration />
       <TipsAndTricksSlider />
-      {/* <GalleryWrapper ref={ref}>
-        <Gallery test={ref.current}/>
-      </GalleryWrapper> */}
-      {width > 1280
-        ? <Gallery/>
-        : <GallerySlider/>
-      }
+      <Gallery width={width} />
     </main>
   )
 }
@@ -45,9 +37,6 @@ Content.propTypes = {
   className: PropTypes.string,
 }
 
-const GalleryWrapper = styled.div`
-  overflow: hidden;
-`
 export default styled(Content)`
   width: 100%;
   flex: 1 1 auto;

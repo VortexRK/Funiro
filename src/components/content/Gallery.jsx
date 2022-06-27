@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import GallerySlider from './Gallery/GallerySlider'
+import GalleryGrid from './Gallery/GalleryGrid'
 
 const Gallery = props => {
 /// Нужно выбрать к чему привязать метод movemouse, переименовать rightX i leftX во что-то
@@ -11,41 +13,6 @@ const Gallery = props => {
   const rightColumnLength = useRef(null)
   const middleColumnLength = useRef(null)
   const gallery = useRef(null)
-
-  useEffect(() => {
-    // setRightX(rightColumnLength.current.getBoundingClientRect().width - (document.documentElement.clientWidth - rightColumnLength.current.getBoundingClientRect().x))
-
-    console.log(`rightColumnLength.current.getBoundingClientRect().x`, leftColumnLength.current)
-    console.log(`rightColumnLength.current.getBoundingClientRect().x`,  leftColumnLength.current.getBoundingClientRect())
-    console.log('ttt', document.querySelector('[class*="Gallery__LeftColumn"]').getBoundingClientRect())
-  },[])
-
-  const moveGallery = e => {
-    if (rightX === 0) {
-      setRightX(rightColumnLength.current.getBoundingClientRect().width - (document.documentElement.clientWidth - rightColumnLength.current.getBoundingClientRect().x))
-    }
-    if (leftX === 0) {
-      setLeftX(leftColumnLength.current.getBoundingClientRect().x)
-    }
-
-    const pageMiddle = document.documentElement.clientWidth / 2
-    const leftScale = (-leftX) / (pageMiddle )
-    const rightScale = rightX / (pageMiddle )
-
-    if (e.pageX < pageMiddle) {
-      // setPosition(-(e.pageX - pageMiddle) * leftScale)
-      setPosition((pageMiddle - e.pageX) * leftScale)
-    }
-    if (e.pageX > pageMiddle) {
-      setPosition((pageMiddle - e.pageX) * rightScale)
-    }
-  }
-
-  useEffect(() => {
-    gallery.current.addEventListener('mousemove', moveGallery)
-    return () => gallery.current.removeEventListener('mousemove', moveGallery)
-  })
-
   const [src, setSrc] = useState()
   const [toggle, setToggle] = useState(false)
   function openGallery(e) {
@@ -56,50 +23,19 @@ const Gallery = props => {
     }
   }
   return (
-    <section className={props.className} ref={gallery}>
+    <section className={props.className} >
       <Div open={toggle} onClick={() => setToggle(prev => !prev)}>
         <Img src={src} alt='name'/>
       </Div>
       <GalleryWrapper>
-      <HeaderWrapper>
-        <H5>Share your setup with</H5>
-        <Header>#FuniroFurniture</Header>
-      </HeaderWrapper>
-      <Grid translateValue={position}>
-        <LeftColumn ref={leftColumnLength}>
-          <TopColumn side={'left'} onClick={e => openGallery(e)}>
-            <Image src={'/images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
-            <Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
-
-            <Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
-            <Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
-          </TopColumn>
-          <BottomColumn side={'left'} onClick={e => openGallery(e)}>
-            <Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
-            <Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
-
-            <Image src={'/images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
-            <Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
-          </BottomColumn>
-        </LeftColumn>
-        <Middle ref={middleColumnLength}>
-          <Image src={'/images/Gallery/middle.jpg'} alt='middle'  />
-        </Middle>
-        <RightColumn ref={rightColumnLength}>
-          <TopColumn onClick={e => openGallery(e)}>
-              <Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
-              <Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
-              <Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
-              <Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
-            </TopColumn>
-            <BottomColumn onClick={e => openGallery(e)}>
-              <Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
-              <Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
-              <Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
-              <Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
-            </BottomColumn>
-        </RightColumn>
-      </Grid>
+        <HeaderWrapper>
+          <H5>Share your setup with</H5>
+          <Header>#FuniroFurniture</Header>
+        </HeaderWrapper>
+        {props.width > 1280
+        ? <GalleryGrid width={props.width} openGallery={openGallery} />
+        : <GallerySlider width={props.width} />
+      }
       </GalleryWrapper>
     </section>
   )
@@ -107,6 +43,7 @@ const Gallery = props => {
 
 Gallery.propTypes = {
   className: PropTypes.string,
+  width: PropTypes.number,
 }
 
 const Div = styled.div`
@@ -135,7 +72,7 @@ const GalleryWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 45px auto 0px;
+  margin: 0px auto;
   padding-bottom: 85px;
   border-bottom: 1px solid #D8D8D8;
   overflow: visible;
@@ -148,7 +85,6 @@ const HeaderWrapper = styled.div`
   top: 30px;
   z-index: 1;
 `
-
 
 const H5= styled.h5`
   font-size: 20px;
@@ -177,6 +113,7 @@ const LeftColumn = styled.div`
   flex-direction: column;
   justify-content: ${props => props.side === 'left' ? 'flex-end' : 'flex-start'};
 `
+
 const TopColumn = styled.div`
   display: flex;
   align-items: flex-end;
@@ -214,14 +151,9 @@ const RightColumn = styled.div`
 export default styled(Gallery)`
   overflow: hidden;
   position: relative;
-  /* max-width: 1238px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 45px auto 0px;
-  padding-bottom: 85px;
-  border-bottom: 1px solid #D8D8D8;
-  overflow: visible; */
+  margin-top: 45px;
+
+  @media (max-width: 1280px) {
+    margin-top: 0px;
+  }
 `

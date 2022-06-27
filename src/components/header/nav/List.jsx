@@ -37,11 +37,10 @@ export default styled(List)`
   position: absolute;
   top: 20px;
   left: 0;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background: linear-gradient(to right,#F9F1E7 60%,#FCF8F3 40%);
   box-shadow: 2px 2px 5px #777777;
-  /* transition: opacity 0.3s, visibility 0.3s; */
-  z-index: 3;
-  /* opacity: ${props => props.visibility ? 1 : 0}; */
+  z-index: 4;
   visibility: ${props => props.visibility ? 'visible' : 'hidden'};
 
   @media (max-width: 767px) {
@@ -51,7 +50,6 @@ export default styled(List)`
     max-height: ${props => props.visibility ? 600 : 0}px;
     background-color: #F9F1E7;
     overflow: hidden;
-    /* transition: max-height 0.8s, opacity 0.3s, visibility 0.3s; */
     transition: all 0.3s;
     box-shadow: initial;
     top: 0;

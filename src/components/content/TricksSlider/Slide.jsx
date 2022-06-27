@@ -74,10 +74,15 @@ export default styled(Slide)`
   .text {
     height: 100%;
   }
-  
+
   &:hover {
     position: relative;
     top: 5px;
     right: 5px;
+
+    @media (max-width: 1311px) {
+      top: initial;
+      right: initial;
+    }
   }
 `

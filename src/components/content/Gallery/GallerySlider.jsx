@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { Navigation, Pagination } from 'swiper';
@@ -11,28 +11,37 @@ import 'swiper/modules/navigation/navigation.scss'; // Navigation module
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
 const GallerySlider = props => {
+  const [sliderWidth, setSliderWidth] = useState('100%')
+
+  // useEffect( () => {
+  //   if (width >= 1312) {
+  //     setSliderWidth('100%')
+  //   } else if (width < 1312 && width > 880) {
+  //     setSliderWidth('865px')
+  //   } else {
+  //     setCountSlides(1)
+  //     setSliderWidth('440px')
+  //   }
+  // }, [props.width])
   return (
     <div className={props.className}>
-      {/* <Wrapper> */}
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={15}
-          slidesPerView={1}
-          // navigation
+          spaceBetween={30}
+          slidesPerView={props.width > 880 ? 2 : 1}
           pagination={{ clickable: true }}
-          // loop={true}
           autoHeight={true}
-          // loopAdditionalSlides={5}
           speed={800}
-          // centeredSlides={isCenteredSlides}
-          // watchOverflow={true}
           preloadImages={false}
-          
         >
           <SwiperSlide><Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37' /></SwiperSlide>
+          <SwiperSlide><Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38' /></SwiperSlide>
+          <SwiperSlide><Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39' /></SwiperSlide>
+          <SwiperSlide><Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41' /></SwiperSlide>
+          <SwiperSlide><Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43' /></SwiperSlide>
+          <SwiperSlide><Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44' /></SwiperSlide>
           <SwiperSlide><Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45' /></SwiperSlide>
         </Swiper>
-      {/* </Wrapper> */}
     </div>
   )
 }
@@ -42,23 +51,35 @@ GallerySlider.propTypes = {
   className: PropTypes.string,
 }
 
-const Wrapper = styled.div`
-  background-color: red;
-  /* height: 300px; */
-  /* width: 300px ; */
-`
-
 const Image = styled.img`
+  width: 391px;
   object-fit: fill;
   object-position: center;
+
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 `
 
 export default styled(GallerySlider)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  width: 100%;
+  margin: 20px auto 0px;
+  width: 865px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 880px) {
+    width: 440px;
+  }
+
+  @media (max-width: 440px) {
+    width: 345px;
+  }
+
+  @media (max-width: 400px) {
+    width: 300px;
+  }
 
   .swiper {
     width: 100%;

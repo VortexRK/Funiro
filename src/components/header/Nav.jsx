@@ -99,7 +99,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
 
   @media (max-width: 767px) {
-    background-color: #FCF8F3;
+    /* background-color: #FCF8F3; */
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -136,9 +136,10 @@ export default styled(Nav)`
     position: absolute;
     opacity: ${props => props.isNav ? 1 : 0};
     transition: opacity 0.3s, visibility 0.3s;
-    top: 70px;
+    top: 80px;
     left: 0px;
-    background-color: #FCF8F3;
+    background: linear-gradient(to right,#F9F1E7 60%,#FCF8F3 40%);
+    /* background-color: #FCF8F3;  */
     padding-bottom: 20px;
     visibility: ${props => props.isNav ? 'visible' : 'hidden'};
   }
