@@ -2,50 +2,34 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { Navigation, Pagination } from 'swiper';
-// Direct React component imports
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-
-// Styles must use direct files imports
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/navigation/navigation.scss'; // Navigation module
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
 const GallerySlider = props => {
-  const [sliderWidth, setSliderWidth] = useState('100%')
-
-  // useEffect( () => {
-  //   if (width >= 1312) {
-  //     setSliderWidth('100%')
-  //   } else if (width < 1312 && width > 880) {
-  //     setSliderWidth('865px')
-  //   } else {
-  //     setCountSlides(1)
-  //     setSliderWidth('440px')
-  //   }
-  // }, [props.width])
   return (
     <div className={props.className}>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={props.width > 880 ? 2 : 1}
-          pagination={{ clickable: true }}
-          autoHeight={true}
-          speed={800}
-          preloadImages={false}
-        >
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44' /></SwiperSlide>
-          <SwiperSlide><Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45' /></SwiperSlide>
-        </Swiper>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={30}
+        slidesPerView={props.width > 880 ? 2 : 1}
+        pagination={{ clickable: true }}
+        autoHeight={true}
+        speed={800}
+        preloadImages={false}
+      >
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44' /></SwiperSlide>
+        <SwiperSlide><Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45' /></SwiperSlide>
+      </Swiper>
     </div>
   )
 }
-
 
 GallerySlider.propTypes = {
   className: PropTypes.string,

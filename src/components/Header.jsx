@@ -77,14 +77,14 @@ const Header = props => {
           <Wrapper>
             <FavoriteWrapper ref={refFavorite}>
               {favoriteProducts.length > 0 ? <Counter>{favoriteCounter}</Counter> : null }
-              <Favorite showFavorite={showFavorite} isHollow={favoriteProducts.length}/>
-              <ProductList isVisible={showFavoriteProducts} products={favoriteProducts} delete={deleteFromFavorite}/>
+              <Favorite showFavorite={showFavorite} isHollow={favoriteProducts.length}/>              
             </FavoriteWrapper>
+            <ProductList isVisible={showFavoriteProducts} products={favoriteProducts} delete={deleteFromFavorite}/>
             <CartWrapper ref={refCart}>
               {cartProducts.length > 0 ? <Counter>{cartCounter}</Counter> : null }
               <Cart showCart={showCart}/>
-              <ProductList isVisible={showCartProducts} products={cartProducts} delete={deleteFromCart} cart={true}/>
             </CartWrapper>
+            <ProductList isVisible={showCartProducts} products={cartProducts} delete={deleteFromCart} cart={true}/>
             <UserIcon>
               A
             </UserIcon>
@@ -177,6 +177,7 @@ const RightSide = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   width: 152px;

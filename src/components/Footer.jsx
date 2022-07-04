@@ -66,8 +66,8 @@ const Footer = props => {
         <Content width={249}>
           <Header>Funiro</Header>
           <Text2>Worldwide furniture store since 2020. We sell over 1000+ branded products on our website </Text2>
-          <a href='https://goo.gl/maps/d4xUFF1fPjD7JiQd9'> 
-            <Pin /> 
+          <a href='https://goo.gl/maps/d4xUFF1fPjD7JiQd9'>
+            <Pin />
             Sawojajar Malang, Indonesia
           </a>
           <Text2>
@@ -101,7 +101,7 @@ const Footer = props => {
           <Header>Stay Updated</Header>
           <Form>
             <Label>
-              <Input type='text' placeholder={'Enter your Email'} />
+              <Input type='email' placeholder={'Enter your Email'} />
             </Label>
             <Submit type='submit' value='' />
           </Form>
@@ -118,6 +118,7 @@ Footer.propTypes = {
 const Content = styled.div`
   width: ${props => props.width ? `${props.width}px` : ''};
   margin-bottom: 30px;
+
   :not(:last-child) {
      margin-right: 35px;
   }
@@ -143,13 +144,17 @@ const Content = styled.div`
       margin-right: 0px;
     }
   }
+
+  @media (max-width: 505px) {
+    margin-bottom: 10px;
+  }
 `
 
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  
+
 `
 
 const Header = styled.h3`

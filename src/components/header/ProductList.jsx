@@ -62,6 +62,9 @@ export default styled(ProductList)`
   display: ${props => props.isVisible ? 'block' : 'none'};
   padding: 20px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-  /* left: -370px; */
-  left: -1000%;
+  right: 0;
+
+  @media (max-width: 430px) {
+    right: -30px;
+  }
 `

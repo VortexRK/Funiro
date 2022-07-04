@@ -66,9 +66,20 @@ const Slider = styled.div`
     top: -60px;
     left: -115px;
     bottom: initial;
+    width: initial;
+    left: 55%;
 
-    @media (max-width: 1275px) {
-      left: 130px;
+    @media (max-width: 500px) {
+      left: 65%;
+    }
+
+    @media (max-width: 500px) {
+      width: 90px;
+      left: 69%;
+    }
+
+    @media (max-width: 385px) {
+      left: 73%;
     }
   }
 

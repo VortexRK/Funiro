@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import AddCart from './AddCart2'
+import AddCart from './AddCart'
 
 const Hover = props => {
   return (

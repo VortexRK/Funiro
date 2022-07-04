@@ -81,7 +81,7 @@ const ServicesWrapper = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media (max-width: 559px) {
+  @media (max-width: 599px) {
     justify-content: center;
   }
 `
@@ -95,7 +95,7 @@ const Service = styled.article`
     min-width: 280px;
   }
 
-  @media (max-width: 559px) {
+  @media (max-width: 599px) {
     margin-left: 40px;
   }
 `
@@ -132,10 +132,10 @@ export default styled(Services)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 145px 20px 40px;
+  padding: 100px 20px 40px;
 
   @media (max-width: 992px) {
-    padding-top: 55px;
-    padding-bottom: 11px;
+    padding-top: 20px;
+    padding-bottom: 10px;
   }
 `

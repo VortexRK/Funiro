@@ -4,7 +4,6 @@ import styled from 'styled-components/macro'
 import Product from './Product/Product'
 
 const Products = props => {
-
   const [quantity, setQuantity] = useState(window.innerWidth > 645 ? 8 : 4)
   const [isMinimize, setMiminize] = useState(false)
 
@@ -82,9 +81,13 @@ const Button = styled.div`
   align-items: center;
   margin-top: 32px;
   cursor: pointer;
-  
+
   &:hover {
     background-color: #ffe7d9;
+  }
+
+  @media (max-width: 870px) {
+    margin-top: 20px;
   }
 `
 
@@ -93,16 +96,16 @@ const ProductWrapper = styled.div`
   grid-template-columns: auto auto auto auto;
   grid-gap: 32px;
 
-  @media(max-width: 1275px) {
+  @media (max-width: 1275px) {
     grid-template-columns: auto auto auto;
     justify-content: center;
   }
 
-  @media(max-width: 967px) {
+  @media (max-width: 870px) {
     grid-template-columns: auto auto;
   }
 
-  @media(max-width: 645px) {
+  @media (max-width: 600px) {
     grid-template-columns: auto;
   }
 `
@@ -115,11 +118,7 @@ export default styled(Products)`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 967px) {
-    padding: 20px 0px 30px;
-  }
-
-  @media (max-width: 460px) {
-    padding: 20px;
+  @media (max-width: 992px) {
+    padding: 10px 0px 30px;
   }
 `

@@ -85,6 +85,10 @@ const Header = styled.h1`
   font-weight: 700;
   line-height: 48px;
   margin-bottom: 32px;
+
+  @media (max-width: 880px) {
+    margin-bottom: 10px;
+  }
 `
 
 const Slider = styled.div`

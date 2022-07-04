@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { addToFavorite, deleteFromFavorite, addToCart, deleteFromCart } from '../../../actions'
 import { useSelector } from 'react-redux'
 
-const AddCart2 = props => {
+const AddCart = props => {
   const [fill, setFill] = useState('none')
   const favoriteProducts = useSelector( state => state.favorite.favorite.products)
   const dispatch = useDispatch()
@@ -34,9 +34,9 @@ const AddCart2 = props => {
 
   return (
     <>
-      <AddCart bgcolor={props.bgcolor} onClick={toggleCartProduct}>
+      <AddButton bgcolor={props.bgcolor} onClick={toggleCartProduct}>
           Add to cart
-      </AddCart>
+      </AddButton>
       <IconsWrapper>
         <Icon>
           <Vector vstroke={props.vstroke} />
@@ -51,7 +51,7 @@ const AddCart2 = props => {
   )
 }
 
-AddCart2.propTypes = {
+AddCart.propTypes = {
   className: PropTypes.string,
   bgcolor: PropTypes.string,
   vstroke: PropTypes.string,
@@ -62,8 +62,7 @@ AddCart2.propTypes = {
   id: PropTypes.number,
 }
 
-
-const AddCart = styled.div`
+const AddButton = styled.div`
   height: 48px;
   width: 202px;
   font-size: 16px;
@@ -80,6 +79,7 @@ const AddCart = styled.div`
   @media (max-width: 967px) {
     color: #ffffff;
     background-color: #E89F71;
+    margin-bottom: 10px;
   }
 
   &:hover {
@@ -107,9 +107,9 @@ const Text = styled.div`
     color: inherit;
   }
 
-  :nth-child(2){
+  :nth-child(2) {
     margin-right: 50px;
   }
 `
 
-export default styled(AddCart2)``
+export default styled(AddCart)``
