@@ -18,6 +18,15 @@ const Product = props => {
     return () => window.removeEventListener('resize', getWidth)
   }, [window.innerWidth])
 
+  const finallPrice = () => {
+    if (product.discount) {
+      let discount = parseFloat(product.discount)
+      let price = parseFloat(product.price)
+      return (price - price * discount / 100).toFixed(0)
+    }
+    return product.price
+  }
+
   return (
     <article className={props.className}>
       {width > 967 && <Hover name={product.name} price={product.price} src={product.image} id={product.id}/>}
@@ -32,8 +41,8 @@ const Product = props => {
           <Name>{product.name}</Name>
           <Descrtiption>{product.description}</Descrtiption>
           <PriceWrapper>
-            <Price>Rp {product.price}</Price>
-            {product.oldPrice && <OldPrice>Rp {product.oldPrice}</OldPrice>}
+            <Price>Rp {finallPrice()}</Price>
+            {product.discount && <OldPrice>Rp {product.price}</OldPrice>}
           </PriceWrapper>
         </DescrtiptionWrapper>
         {width <= 967 &&
