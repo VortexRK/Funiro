@@ -1,37 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Context from '../../../Context'
 
-import { Navigation, Pagination } from 'swiper';
-// Direct React component imports
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-
-// Styles must use direct files imports
-import 'swiper/swiper.scss'; // core Swiper
-import 'swiper/modules/navigation/navigation.scss'; // Navigation module
-import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js'
+import 'swiper/swiper.scss' // core Swiper
+import 'swiper/modules/navigation/navigation.scss' // Navigation module
+import 'swiper/modules/pagination/pagination.scss' // Pagination module
 
 const Slider = props => {
-  const [width, setWidth] = useState(window.innerWidth)
+  const { innerWidth } = useContext(Context)
   const [isCenteredSlides, setCenteredSlides] = useState(false)
 
-  const getWidth = () => {
-    setWidth(window.innerWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', getWidth)
-
-    return () => window.removeEventListener('resize', getWidth)
-  }, [window.innerWidth])
-
   useEffect( () => {
-    if (width >= 645) {
+    if (innerWidth >= 645) {
       setCenteredSlides(false)
     } else {
       setCenteredSlides(true)
     }
-  }, [width])
+  }, [innerWidth])
 
   return (
     <div className={props.className}>
@@ -46,7 +34,6 @@ const Slider = props => {
         loopAdditionalSlides={5}
         speed={800}
         centeredSlides={isCenteredSlides}
-        // watchOverflow={true}
         preloadImages={false}
       >
       <SwiperSlide> <Image src={'/images/Gallery/Rectangle_36.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
@@ -95,6 +82,7 @@ export default styled(Slider)`
       transform: translate(-100%, 0);
     }
   }
+
   .swiper-pagination {
     left: 430px;
     bottom: 30px;
@@ -112,7 +100,6 @@ export default styled(Slider)`
       bottom: -30px;
       left: 30%;
     }
-
   }
 
   .swiper-pagination-bullet {
@@ -144,6 +131,7 @@ export default styled(Slider)`
       font-size: 16px !important;
       z-index: 2;
     }
+
     &::before {
       content: '';
       background-color: #ffffff;

@@ -1,22 +1,16 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import GallerySlider from './Gallery/GallerySlider'
 import GalleryGrid from './Gallery/GalleryGrid'
+import Context from '../../Context'
 
 const Gallery = props => {
-/// Нужно выбрать к чему привязать метод movemouse, переименовать rightX i leftX во что-то
-  const [position, setPosition] = useState(0)
-  const [rightX, setRightX] = useState(0)
-  const [leftX, setLeftX] = useState(0)
-  const leftColumnLength = useRef(null)
-  const rightColumnLength = useRef(null)
-  const middleColumnLength = useRef(null)
-  const gallery = useRef(null)
+  const { innerWidth } = useContext(Context)
   const [src, setSrc] = useState()
   const [toggle, setToggle] = useState(false)
+
   function openGallery(e) {
-    console.log(`e.target.alt`, e.target.alt)
     if (e.target.tagName === 'IMG') {
       setSrc(e.target.src)
       setToggle(prev => !prev)
@@ -32,10 +26,10 @@ const Gallery = props => {
           <H5>Share your setup with</H5>
           <Header>#FuniroFurniture</Header>
         </HeaderWrapper>
-        {props.width > 1280
-        ? <GalleryGrid width={props.width} openGallery={openGallery} />
-        : <GallerySlider width={props.width} />
-      }
+        {innerWidth > 1280
+          ? <GalleryGrid width={innerWidth} openGallery={openGallery} />
+          : <GallerySlider width={innerWidth} />
+        }
       </GalleryWrapper>
     </section>
   )
@@ -97,55 +91,6 @@ const Header = styled.h1`
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
-`
-
-const Grid = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  justify-content: center;
-  transform: translateX(${props => props.translateValue}px);
-  transition: transform 1.5s linear;
-`
-
-const LeftColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: ${props => props.side === 'left' ? 'flex-end' : 'flex-start'};
-`
-
-const TopColumn = styled.div`
-  display: flex;
-  align-items: flex-end;
-`
-
-const BottomColumn = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: ${props => props.side === 'left' ? 'flex-end' : 'flex-start'};
-`
-
-const Image = styled.img`
-  object-fit: contain;
-  margin: 8px;
-  filter: grayscale(100%);
-  cursor: pointer;
-
-  :hover {
-    filter: none;
-  }
-  max-height: 450px;
-  max-width: 450px;
-`
-
-const Middle = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const RightColumn = styled.div`
-  display: flex;
-  flex-direction: column;
 `
 
 export default styled(Gallery)`

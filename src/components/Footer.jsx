@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import TArrow from '../icons/t.svg'
@@ -10,17 +10,6 @@ const Footer = props => {
   const [menuVisibility, setMenuVisibility] = useState(0)
   const [accountVisibility, setAccountVisibility] = useState(0)
   const [socialsVisibility, setSocialsVisibility] = useState(0)
-  // const [width, setWidth] = useState(window.innerWidth)
-
-  // const getWidth = () => {
-  //   setWidth(window.innerWidth)
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', getWidth)
-
-  //   return () => window.removeEventListener('resize', getWidth)
-  // }, [window.innerWidth])
 
   const hideMenu = () => {
     if (accountVisibility) setAccountVisibility(0)

@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Hover from './Hover'
 import AddCart from './AddCart'
+import Context from '../../../Context'
 
 const Product = props => {
-  const [width, setwidth] = useState(window.innerWidth)
+  let { innerWidth } = useContext(Context)
   const { product } = props
-
-  const getWidth = () => {
-    setwidth(window.innerWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', getWidth)
-
-    return () => window.removeEventListener('resize', getWidth)
-  }, [window.innerWidth])
 
   const finallPrice = () => {
     if (product.discount) {
@@ -29,7 +20,7 @@ const Product = props => {
 
   return (
     <article className={props.className}>
-      {width > 967 && <Hover name={product.name} price={product.price} src={product.image} id={product.id}/>}
+      {innerWidth > 967 && <Hover name={product.name} price={product.price} src={product.image} id={product.id}/>}
       <Blur>
         <ImgWrapper>
           <Img src={product.image} alt={product.name}></Img>
@@ -45,7 +36,7 @@ const Product = props => {
             {product.discount && <OldPrice>Rp {product.price}</OldPrice>}
           </PriceWrapper>
         </DescrtiptionWrapper>
-        {width <= 967 &&
+        {innerWidth <= 967 &&
           <CartWrapper>
             <AddCart bgcolor={'#E89F71'} vstroke={'#3A3A3A'} whstroke={'#3A3A3A'} name={product.name} price={product.price} src={product.image} id={product.id}/>
           </CartWrapper>}

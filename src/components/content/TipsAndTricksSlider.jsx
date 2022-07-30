@@ -1,45 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import Slide from './TricksSlider/Slide';
-// Core modules imports are same as usual
-import { Navigation, Pagination } from 'swiper';
-// Direct React component imports
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-
-// Styles must use direct files imports
-import 'swiper/swiper.scss'; // core Swiper
-import 'swiper/modules/navigation/navigation.scss'; // Navigation module
-import 'swiper/modules/pagination/pagination.scss'; // Pagination module
-
+import Slide from './TricksSlider/Slide'
+import Context from '../../Context'
+import { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js'
+import 'swiper/swiper.scss' // core Swiper
+import 'swiper/modules/navigation/navigation.scss' // Navigation module
+import 'swiper/modules/pagination/pagination.scss' // Pagination module
 
 const TipsAndTricksSlider = props => {
-  const [width, setWidth] = useState(window.innerWidth)
+  let { innerWidth } = useContext(Context)
   const [countSlides, setCountSlides] = useState(3)
   const [sliderWidth, setSliderWidth] = useState('100%')
 
-  const getWidth = () => {
-    setWidth(window.innerWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', getWidth)
-
-    return () => window.removeEventListener('resize', getWidth)
-  }, [window.innerWidth])
-
   useEffect( () => {
-    if (width >= 1312) {
+    if (innerWidth >= 1312) {
       setCountSlides(3)
       setSliderWidth('100%')
-    } else if (width < 1312 && width > 880) {
+    } else if (innerWidth < 1312 && innerWidth > 880) {
       setCountSlides(2)
       setSliderWidth('865px')
     } else {
       setCountSlides(1)
       setSliderWidth('440px')
     }
-  }, [width])
+  }, [innerWidth])
 
   const slides = [
     { id: 0, src: '/images/Gallery/Rectangle_45.jpg', alt: 'rectangle12', header: 'How to create a living room to love', date: '20 jan 2020', },
