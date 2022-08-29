@@ -233,4 +233,8 @@ const ContentWrapper = styled.div`
 export default styled(Footer)`
   width: 100%;
   padding: 80px 20px 50px;
+
+  @media (max-width: 505px) {
+    padding-top: 45px;
+  }
 `

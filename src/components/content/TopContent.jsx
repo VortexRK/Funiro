@@ -142,6 +142,10 @@ const Slider = styled.div`
 
   .swiper-slide {
     height: 554px;
+
+    @media (max-width: 654px) {
+      height: 370px;
+    }
   }
 `
 

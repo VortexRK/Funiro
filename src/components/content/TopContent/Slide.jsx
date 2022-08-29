@@ -34,6 +34,10 @@ const Image = styled.img`
   object-fit: cover;
   object-position: center;
   background-color: #ffffff;
+
+  @media (max-width: 654px) {
+    height: 370px;
+  }
 `
 
 const Sticker = styled.div`

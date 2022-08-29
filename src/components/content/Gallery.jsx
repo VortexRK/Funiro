@@ -70,6 +70,10 @@ const GalleryWrapper = styled.div`
   padding-bottom: 85px;
   border-bottom: 1px solid #D8D8D8;
   overflow: visible;
+
+  @media (max-width: 505px) {
+    padding-bottom: 45px;
+  }
 `
 
 const HeaderWrapper = styled.div`

@@ -161,6 +161,11 @@ export default styled(Slider)`
     width: 372px !important;
     transition: height 300ms;
     display: flex;
+
+    @media (max-width: 370px) {
+      width: 300px !important;
+      height: 300px !important;
+    }
   }
 
   .swiper-slide-active {
