@@ -1,22 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Ellipse from '../../icons/Ellipse.svg'
+import Context from '../../Context'
 
 const Search = props => {
   const [position, setPosition] = useState(-200)
-  const [search, setSearch] = useState('')
   const setPos = () => {
     if (position === 70) {
       setPosition(-100)
     } else setPosition(70)
   }
 
+  const { setSearchInput } = useContext(Context)
+
   return (
     <div className={props.className}>
       <SearchWrapper>
         <Icon onClick={setPos} />
-        <Input type='text' placeholder={'Search'} position={position} onChange={e => setSearch(e.target.value)} />
+        <Input type='text' placeholder={'Search'} position={position} onChange={e => setSearchInput(e.target.value)} />
       </SearchWrapper>
     </div>
   )

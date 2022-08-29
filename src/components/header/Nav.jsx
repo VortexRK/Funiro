@@ -7,7 +7,7 @@ const Nav = props => {
   const [isProducts, setProductsVisibility] = useState(0)
   const [isRooms, setRoomsVisibility] = useState(0)
   const products = [
-    {id: 1, name: 'Something'},
+    {id: 1, name: 'Tables'},
     {id: 2, name: 'Mugs'},
     {id: 3, name: 'Beds'},
     {id: 4, name: 'Chairs'},
@@ -94,12 +94,17 @@ const Arrow = styled.div`
   margin-bottom: 0px;
 `
 
+const Header = styled.p`
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+`
+
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
 
   @media (max-width: 767px) {
-    /* background-color: #FCF8F3; */
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -107,17 +112,13 @@ const HeaderWrapper = styled.div`
   }
 
   :hover {
-    color: #838383;
+    ${Header} {
+      color: #838383;
+    }
 
     ${Arrow} {
       border-color: #838383;
     }
-  }
-`
-
-const Header = styled.p`
-  @media (max-width: 767px) {
-    font-size: 20px;
   }
 `
 
@@ -139,7 +140,6 @@ export default styled(Nav)`
     top: 80px;
     left: 0px;
     background: linear-gradient(to right,#F9F1E7 60%,#FCF8F3 40%);
-    /* background-color: #FCF8F3;  */
     padding-bottom: 20px;
     visibility: ${props => props.isNav ? 'visible' : 'hidden'};
   }

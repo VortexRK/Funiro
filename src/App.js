@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Content from './components/Content'
@@ -9,6 +9,7 @@ import Context from './Context'
 
 const App = props => {
   const [innerWidth, setwidth] = useState(window.innerWidth)
+  const [searchInput, setSearchInput] = useState('')
 
   const getWidth = () => {
     setwidth(window.innerWidth)
@@ -23,7 +24,7 @@ const App = props => {
   return (
     <div className={props.className}>
       <Router>
-        <Context.Provider value={{ innerWidth }}>
+        <Context.Provider value={{ innerWidth, searchInput, setSearchInput }}>
           <Wrapper>
             <Header />
             <Content />

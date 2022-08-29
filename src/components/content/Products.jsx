@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Product from './Product/Product'
+import Context from '../../Context'
 
 const Products = props => {
   const [quantity, setQuantity] = useState(window.innerWidth > 645 ? 8 : 4)
   const [isMinimize, setMiminize] = useState(false)
+  const [minSize, setMinSize] = useState(window.innerWidth > 645 ? 8 : 4)
+  const [isActive, setIsActive] = useState(true)
+  const {searchInput, innerWidth} = useContext(Context)
 
   const products = [
     { id: 1, image: '/images/Syltherine.jpg', name: 'Syltherine', description: 'Stylish cafe chair', price: '123451234', discount: '30%', isNew: false },
@@ -24,22 +28,47 @@ const Products = props => {
     { id: 14, image: '/images/Potty.jpg', name: 'Potty', description: 'Minimalist flower pot', price: '123451234', discount: '', isNew: true },
   ]
 
-  const increaseCount = products => {
+  const filteredProduct = products.filter((product) => {
+    if (searchInput) return product.name.toLowerCase().indexOf(searchInput.toLowerCase()) >= 0
+    else return product
+  })
+
+  const increaseCount = () => {
     if (isMinimize) {
       setMiminize(false)
-      setQuantity(8)
+
+      if (innerWidth > 645) {
+        setQuantity(8)
+      } else setQuantity(4)
+
       return
     }
-    if (products.length >= quantity + 4) {
-      setQuantity(previousVal => previousVal + 4)
-    } else if (products.length > quantity) {
-      setQuantity(previousVal => previousVal + products.length - previousVal )
-    }
+
+    setQuantity(previousVal => previousVal + 4)
   }
 
   useEffect(() => {
-    if (quantity === products.length) setMiminize(true)
+    if (filteredProduct.length <= minSize) {
+      setIsActive(false)
+    } else setIsActive(true)
+  })
+
+  useEffect(() => {
+    if (innerWidth > 645) {
+      setMinSize(8)
+    } else setMinSize(4)
+  }, [innerWidth])
+
+  useEffect(() => {
+    if (quantity >= filteredProduct.length && filteredProduct.length > minSize) setMiminize(true)
   }, [quantity])
+
+  useEffect(() => {
+    if (innerWidth > 645) {
+      setQuantity(8)
+    } else setQuantity(4)
+    setMiminize(false)
+  }, [searchInput])
 
   return (
     <section className={props.className} id='Products'>
@@ -47,9 +76,9 @@ const Products = props => {
         Our Products
       </Header>
       <ProductWrapper>
-        {products.slice(0, quantity).map((val, id) => <Product key={id} product={val}/>)}
+        {filteredProduct.slice(0, quantity).map((product, id) => <Product key={id} product={product}/>)}
       </ProductWrapper>
-      <Button onClick={() => increaseCount(products)}>
+      <Button onClick={() => increaseCount()} isActive={isActive}>
         {isMinimize ? 'Minimize products' : 'Show More'}
       </Button>
     </section>
@@ -74,8 +103,8 @@ const Button = styled.div`
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
-  color: #E89F71;
-  border: 1px solid #E89F71;
+  color: ${props => props.isActive ? '#E89F71' : '#9e9e9e'};
+  border: 1px solid ${props => props.isActive ? '#E89F71' : '#9e9e9e'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +112,7 @@ const Button = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #ffe7d9;
+    background-color: ${props => props.isActive ? '#ffe7d9' : null};
   }
 
   @media (max-width: 870px) {
