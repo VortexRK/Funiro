@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import { commas } from '../../../helpers/helpers.js'
+import { addDotsForNumber } from '../../../helpers/helpers.js'
 
 const Slide = props => {
   const { product } = props
@@ -16,7 +16,7 @@ const Slide = props => {
           {product.description}
         </Info>
         <Price>
-          Rp {commas(product.price)}
+          Rp {addDotsForNumber(product.price)}
         </Price>
       </Sticker>
     </section>

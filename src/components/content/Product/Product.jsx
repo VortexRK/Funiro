@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import Hover from './Hover'
 import AddCart from './AddCart'
 import Context from '../../../Context'
+import { addDotsForNumber } from '../../../helpers/helpers'
 
 const Product = props => {
   let { innerWidth } = useContext(Context)
@@ -13,9 +14,9 @@ const Product = props => {
     if (product.discount) {
       let discount = parseFloat(product.discount)
       let price = parseFloat(product.price)
-      return (price - price * discount / 100).toFixed(0)
+      return addDotsForNumber((price - price * discount / 100).toFixed(0))
     }
-    return product.price
+    return addDotsForNumber(product.price)
   }
 
   return (
@@ -33,7 +34,7 @@ const Product = props => {
           <Descrtiption>{product.description}</Descrtiption>
           <PriceWrapper>
             <Price>Rp {finallPrice()}</Price>
-            {product.discount && <OldPrice>Rp {product.price}</OldPrice>}
+            {product.discount && <OldPrice>Rp {addDotsForNumber(product.price)}</OldPrice>}
           </PriceWrapper>
         </DescrtiptionWrapper>
         {innerWidth <= 967 &&
@@ -56,13 +57,17 @@ const CartWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background-color: #fff;
 
   @media (max-width: 967px) {
     padding: 10px;
   }
 `
 
-const Blur = styled.div``
+const Blur = styled.div`
+  height: 100%;
+  background-color: #F4F5F7;
+`
 
 const ImgWrapper = styled.div`
   /* width: 285px; */

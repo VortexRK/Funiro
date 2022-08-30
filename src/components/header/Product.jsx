@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import Cart from '../../icons/Cart'
 import { addToCart } from '../../actions'
+import { addDotsForNumber } from '../../helpers/helpers'
 
 const Product = props => {
   const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const Product = props => {
     <div className={props.className}>
       <Image src={src} alt={name}/>
       <Name>{name} </Name>
-      <Price>Rp {price}</Price>
+      <Price>Rp {addDotsForNumber(price)}</Price>
       { !!quantity
         ? <Quantity>{quantity}</Quantity>
         : <Cart showCart={addProductFromFavoriteToCart} />

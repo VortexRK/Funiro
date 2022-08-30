@@ -1,4 +1,4 @@
-export function commas(number) {
+export function addDotsForNumber(number) {
   const value = `${Math.trunc(number)}`;
   const helper = [];
   const { length } = value;

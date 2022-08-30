@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Product from './Product'
-import { commas } from '../../helpers/helpers'
+import { addDotsForNumber } from '../../helpers/helpers'
 
 const ProductList = props => {
   const [totalPrice, setTotalPrice] = useState('0')
@@ -12,7 +12,7 @@ const ProductList = props => {
     if (props.isCart) {
       let total = 0
       products.forEach(el => total = total + Number(el.price) * el.quantity)
-      setTotalPrice( commas(String(total)) )
+      setTotalPrice(addDotsForNumber(String(total)))
     }
   },[products])
 
@@ -24,7 +24,7 @@ const ProductList = props => {
             <hr />
             <TotalPriceWrapper>
               <Text>Total Price:</Text>
-              <TotalPrice>{totalPrice}</TotalPrice>
+              <TotalPrice>Rp {totalPrice}</TotalPrice>
             </TotalPriceWrapper>
           </>
         : null
