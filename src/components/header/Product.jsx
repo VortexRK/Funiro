@@ -6,15 +6,20 @@ import { useDispatch } from 'react-redux'
 const Product = props => {
   const dispatch = useDispatch()
 
+  const deleteProduct = (e) => {
+    e.stopPropagation()
+    dispatch(props.delete(props.id))
+  }
+
   return (
     <div className={props.className}>
       <Image src={props.src} alt={props.name}/>
       <Name>{props.name} </Name>
       <Price>Rp {props.price}</Price>
-      { !!props.quantity ?
-        <Quantity>{props.quantity}</Quantity>
+      { !!props.quantity
+        ? <Quantity>{props.quantity}</Quantity>
         : null }
-      <Delete onClick={() => dispatch(props.delete(props.id))}>
+      <Delete onClick={deleteProduct}>
         <LeftLine />
         <RightLine />
       </Delete>
