@@ -88,7 +88,7 @@ const Footer = props => {
         </Content>
         <Content width={292}>
           <Header>Stay Updated</Header>
-          <Form>
+          <Form onSubmit={(e) => {e.preventDefault(); console.log('The message has been sent to your email')}}>
             <Label>
               <Input type='email' placeholder={'Enter your Email'} />
             </Label>
@@ -143,7 +143,6 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-
 `
 
 const Header = styled.h3`

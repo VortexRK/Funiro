@@ -6,9 +6,11 @@ import WhiteHeart from '../../../icons/WhiteHeart'
 import { useDispatch } from 'react-redux'
 import { addToFavorite, deleteFromFavorite, addToCart, deleteFromCart } from '../../../actions'
 import { useSelector } from 'react-redux'
+import Socials from './Socials'
 
 const AddCart = props => {
   const [fill, setFill] = useState('none')
+  const [isVisible, setIsVisible] = useState(false)
   const favoriteProducts = useSelector( state => state.favorite.favorite.products)
   const dispatch = useDispatch()
 
@@ -32,14 +34,19 @@ const AddCart = props => {
     }
   }, [favoriteProducts.length])
 
+  const showSocials = () => {
+    setIsVisible(isVisible => !isVisible)
+  }
+
   return (
     <>
       <AddButton bgcolor={props.bgcolor} onClick={toggleCartProduct}>
           Add to cart
       </AddButton>
       <IconsWrapper>
-        <Icon>
+        <Icon onClick={showSocials}>
           <Vector vstroke={props.vstroke} />
+          <Socials isVisible={isVisible}/>
         </Icon>
         <Text> Share</Text>
         <Icon onClick={toggleFavoriteProduct}>
@@ -92,6 +99,7 @@ const IconsWrapper = styled.div`
 `
 
 const Icon = styled.div`
+  position: relative;
   margin-right: 10px;
   cursor: pointer;
 `
