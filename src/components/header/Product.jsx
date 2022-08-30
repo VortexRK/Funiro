@@ -2,23 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
+import Cart from '../../icons/Cart'
+import { addToCart } from '../../actions'
 
 const Product = props => {
   const dispatch = useDispatch()
+  const {id, name, price, src, quantity} = props
 
   const deleteProduct = (e) => {
     e.stopPropagation()
     dispatch(props.delete(props.id))
   }
 
+  const addProductFromFavoriteToCart = (e) => {
+    e.stopPropagation()
+    dispatch(addToCart(id, name, price, src, 1))
+  }
+
   return (
     <div className={props.className}>
-      <Image src={props.src} alt={props.name}/>
-      <Name>{props.name} </Name>
-      <Price>Rp {props.price}</Price>
-      { !!props.quantity
-        ? <Quantity>{props.quantity}</Quantity>
-        : null }
+      <Image src={src} alt={name}/>
+      <Name>{name} </Name>
+      <Price>Rp {price}</Price>
+      { !!quantity
+        ? <Quantity>{quantity}</Quantity>
+        : <Cart showCart={addProductFromFavoriteToCart} />
+      }
       <Delete onClick={deleteProduct}>
         <LeftLine />
         <RightLine />

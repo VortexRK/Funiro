@@ -22,10 +22,10 @@ const ProductList = props => {
       {props.cart
         ? <>
             <hr />
-              <TotalPriceWrapper>
-                <Text>Total Price:</Text>
-                <TotalPrice>{totalPrice}</TotalPrice>
-              </TotalPriceWrapper>
+            <TotalPriceWrapper>
+              <Text>Total Price:</Text>
+              <TotalPrice>{totalPrice}</TotalPrice>
+            </TotalPriceWrapper>
           </>
         : null
       }

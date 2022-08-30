@@ -24,17 +24,13 @@ const cart = (state = initialState, action) => {
       }
     }
     case 'DELETE_FROM_CART': {
-
       const element = state.cart.products.find(el => el.id === action.payload)
-      console.log('ELEMENT', element);
       let helper = null
       if (element.quantity > 1) {
-        
+
         element.quantity = element.quantity - 1
       } else {
         helper = state.cart.products.filter(el => el.id !== action.payload)
-
-        console.log('isHas.quantity', helper);
       }
 
       return {
