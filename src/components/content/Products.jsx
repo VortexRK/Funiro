@@ -51,7 +51,7 @@ const Products = props => {
     if (filteredProduct.length <= minSize) {
       setIsActive(false)
     } else setIsActive(true)
-  })
+  }, [filteredProduct.length, minSize])
 
   useEffect(() => {
     if (innerWidth > 645) {

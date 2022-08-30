@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import Vector from '../../../icons/Vector'
 import WhiteHeart from '../../../icons/WhiteHeart'
 import { useDispatch } from 'react-redux'
-import { addToFavorite, deleteFromFavorite, addToCart, deleteFromCart } from '../../../actions'
+import { addToFavorite, deleteFromFavorite, addToCart } from '../../../actions'
 import { useSelector } from 'react-redux'
 import Socials from './Socials'
 
@@ -32,7 +32,7 @@ const AddCart = props => {
     if (!favoriteProducts.find(el => el.id === props.id)) {
       setFill('none')
     }
-  }, [favoriteProducts.length])
+  }, [favoriteProducts, props.id])
 
   const showSocials = () => {
     setIsVisible(isVisible => !isVisible)

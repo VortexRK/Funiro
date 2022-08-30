@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
@@ -9,7 +9,6 @@ const GalleryGrid = props => {
   const leftColumnLength = useRef(null)
   const rightColumnLength = useRef(null)
   const middleColumnLength = useRef(null)
-  const gallery = useRef(null)
 
   const moveGallery = e => {
     if (rightX === 0) {
@@ -31,13 +30,8 @@ const GalleryGrid = props => {
     }
   }
 
-  useLayoutEffect(() => {
-      gallery.current.addEventListener('mousemove', moveGallery)
-      return () => gallery.current.removeEventListener('mousemove', moveGallery)
-  },[rightX, leftX])
-
   return (
-    <Grid className={props.className} translateValue={position} ref={gallery} onClick={e => props.openGallery(e)}>
+    <Grid className={props.className} translateValue={position} onMouseMove={moveGallery} onClick={e => props.openGallery(e)}>
       <LeftColumn ref={leftColumnLength}>
         <TopColumn side={'left'}>
           <Image src={'/images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />

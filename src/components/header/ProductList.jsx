@@ -9,7 +9,7 @@ const ProductList = props => {
   const {products} = props
 
   useEffect(() => {
-    if (props.cart) {
+    if (props.isCart) {
       let total = 0
       products.forEach(el => total = total + Number(el.price) * el.quantity)
       setTotalPrice( commas(String(total)) )
@@ -19,7 +19,7 @@ const ProductList = props => {
   return (
     <div className={props.className}>
       {products.map((el, id) => <Product key={id} id={el.id} name={el.name} price={el.price} src={el.img} quantity={el?.quantity} delete={props.delete} totalPrice={totalPrice} setTotalPrice={setTotalPrice}/> )}
-      {props.cart
+      {props.isCart
         ? <>
             <hr />
             <TotalPriceWrapper>
@@ -37,6 +37,7 @@ ProductList.propTypes = {
   className: PropTypes.string,
   products: PropTypes.array,
   delete: PropTypes.func,
+  isCart: PropTypes.bool,
 }
 
 const TotalPriceWrapper = styled.div`

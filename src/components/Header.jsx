@@ -75,7 +75,7 @@ const Header = props => {
               {cartProducts.length > 0 ? <Counter>{cartCounter}</Counter> : null }
               <Cart showCart={showCart}/>
             </CartWrapper>
-            <ProductList isVisible={showCartProducts} products={cartProducts} delete={deleteFromCart} cart={true}/>
+            <ProductList isVisible={showCartProducts} products={cartProducts} delete={deleteFromCart} isCart={true}/>
             <UserIcon>
               A
             </UserIcon>
