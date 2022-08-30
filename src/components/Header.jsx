@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Nav from './header/Nav'
@@ -8,9 +8,9 @@ import Favorite from '../icons/Heart'
 import ProductList from './header/ProductList'
 import { useSelector } from 'react-redux'
 import { deleteFromFavorite, deleteFromCart } from '../actions'
+import Context from '../Context'
 
 const Header = props => {
-  const [width, setInnerWidth] = useState(window.innerWidth)
   const [isNav, setNavVisibility] = useState(0)
   const [showFavoriteProducts, setShowFavoriteProducts] = useState(0)
   const [showCartProducts, setShowCartProducts] = useState(0)
@@ -20,10 +20,7 @@ const Header = props => {
   const cartCounter = useSelector(state => state.cart.cart.counter)
   const refCart = useRef()
   const refFavorite = useRef()
-
-  const setWidth = () => {
-    setInnerWidth(window.innerWidth)
-  }
+  const { innerWidth } = useContext(Context)
 
   const closePopup = (e) => {
     if (refCart.current && !refCart.current.contains(e.target)) {
@@ -33,12 +30,6 @@ const Header = props => {
       setShowFavoriteProducts(0)
     }
   }
-
-  useEffect(() => {
-    window.addEventListener('resize', setWidth)
-
-    return () => window.removeEventListener('resize', setWidth)
-  }, [window.innerWidth])
 
   useEffect(() => {
     window.addEventListener('click', closePopup)
@@ -88,7 +79,7 @@ const Header = props => {
             <UserIcon>
               A
             </UserIcon>
-            {width > 767 ? null :
+            {innerWidth > 767 ? null :
               <Burger onClick={() => setNavVisibility(prev => !Number(prev))}>
                 <div></div>
                 <div></div>
