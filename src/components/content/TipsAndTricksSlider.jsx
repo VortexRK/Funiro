@@ -28,17 +28,17 @@ const TipsAndTricksSlider = props => {
   }, [innerWidth])
 
   const slides = [
-    { id: 0, src: '/images/Gallery/Rectangle_45.jpg', alt: 'rectangle12', header: 'How to create a living room to love', date: '20 jan 2020', },
-    { id: 1, src: '/images/Gallery/Rectangle_36.jpg', alt: 'rectangle', header: 'How to create a living room to love How to create a living room to love How to create a living room to loveHow to create a living room to love', date: '20 jan 2020', },
-    { id: 2, src: '/images/Tricks/Rectangle_33.jpg', alt: 'rectangle2', header: 'Solution for clean look working space', date: '10 jan 2020', },
-    { id: 3, src: '/images/Tricks/Rectangle_34.jpg', alt: 'rectangle3', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
-    { id: 5, src: '/images/Tricks/Rectangle_32.jpg', alt: 'rectangle5', header: 'How to create a living room to love', date: '20 jan 2020', },
-    { id: 6, src: '/images/Tricks/Rectangle_33.jpg', alt: 'rectangle6', header: 'Solution for clean look working space', date: '10 jan 2020', },
-    { id: 7, src: '/images/Tricks/Rectangle_34.jpg', alt: 'rectangle7', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
-    { id: 9, src: '/images/Tricks/Rectangle_32.jpg', alt: 'rectangle9', header: 'How to create a living room to love', date: '20 jan 2020', },
-    { id: 10, src: '/images/Tricks/Rectangle_33.jpg', alt: 'rectangle10', header: 'Solution for clean look working space', date: '10 jan 2020', },
-    { id: 11, src: '/images/Tricks/Rectangle_34.jpg', alt: 'rectangle11', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
-    { id: 12, src: '/images/Tricks/Rectangle_32.jpg', alt: 'rectangle12', header: 'How to create a living room to love', date: '20 jan 2020', },
+    { id: 0, src: 'images/Gallery/Rectangle_45.jpg', alt: 'rectangle12', header: 'How to create a living room to love', date: '20 jan 2020', },
+    { id: 1, src: 'images/Gallery/Rectangle_36.jpg', alt: 'rectangle', header: 'How to create a living room to love How to create a living room to love How to create a living room to loveHow to create a living room to love', date: '20 jan 2020', },
+    { id: 2, src: 'images/Tricks/Rectangle_33.jpg', alt: 'rectangle2', header: 'Solution for clean look working space', date: '10 jan 2020', },
+    { id: 3, src: 'images/Tricks/Rectangle_34.jpg', alt: 'rectangle3', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
+    { id: 5, src: 'images/Tricks/Rectangle_32.jpg', alt: 'rectangle5', header: 'How to create a living room to love', date: '20 jan 2020', },
+    { id: 6, src: 'images/Tricks/Rectangle_33.jpg', alt: 'rectangle6', header: 'Solution for clean look working space', date: '10 jan 2020', },
+    { id: 7, src: 'images/Tricks/Rectangle_34.jpg', alt: 'rectangle7', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
+    { id: 9, src: 'images/Tricks/Rectangle_32.jpg', alt: 'rectangle9', header: 'How to create a living room to love', date: '20 jan 2020', },
+    { id: 10, src: 'images/Tricks/Rectangle_33.jpg', alt: 'rectangle10', header: 'Solution for clean look working space', date: '10 jan 2020', },
+    { id: 11, src: 'images/Tricks/Rectangle_34.jpg', alt: 'rectangle11', header: 'Make your cooking activity more fun with good setup', date: '23 feb 2020', },
+    { id: 12, src: 'images/Tricks/Rectangle_32.jpg', alt: 'rectangle12', header: 'How to create a living room to love', date: '20 jan 2020', },
   ]
   return (
     <section className={props.className}>

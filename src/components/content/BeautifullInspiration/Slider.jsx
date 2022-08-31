@@ -36,10 +36,10 @@ const Slider = props => {
         centeredSlides={isCenteredSlides}
         preloadImages={false}
       >
-      <SwiperSlide> <Image src={'/images/Gallery/Rectangle_36.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
-      <SwiperSlide> <Image src={'/images/Gallery/Rectangle_37.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
-      <SwiperSlide> <Image src={'/images/Gallery/Rectangle_36.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
-      <SwiperSlide> <Image src={'/images/Gallery/Rectangle_38.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
+      <SwiperSlide> <Image src={'images/Gallery/Rectangle_36.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
+      <SwiperSlide> <Image src={'images/Gallery/Rectangle_37.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
+      <SwiperSlide> <Image src={'images/Gallery/Rectangle_36.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
+      <SwiperSlide> <Image src={'images/Gallery/Rectangle_38.jpg'} alt={'text'} width={'100%'} /> </SwiperSlide>
     </Swiper>
     </div>
   )

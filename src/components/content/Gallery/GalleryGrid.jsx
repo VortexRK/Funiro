@@ -34,35 +34,35 @@ const GalleryGrid = props => {
     <Grid className={props.className} translateValue={position} onMouseMove={moveGallery} onClick={e => props.openGallery(e)}>
       <LeftColumn ref={leftColumnLength}>
         <TopColumn side={'left'}>
-          <Image src={'/images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
-          <Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
+          <Image src={'images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
+          <Image src={'images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
 
-          <Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
-          <Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
+          <Image src={'images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
+          <Image src={'images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
         </TopColumn>
         <BottomColumn side={'left'} >
-          <Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
-          <Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
+          <Image src={'images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37'  />
+          <Image src={'images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39'  />
 
-          <Image src={'/images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
-          <Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
+          <Image src={'images/Gallery/Rectangle_36.jpg'} alt='Rectangle_36'  />
+          <Image src={'images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38'  />
         </BottomColumn>
       </LeftColumn>
       <Middle ref={middleColumnLength}>
-        <Image src={'/images/Gallery/middle.jpg'} alt='middle'  />
+        <Image src={'images/Gallery/middle.jpg'} alt='middle'  />
       </Middle>
       <RightColumn ref={rightColumnLength}>
         <TopColumn>
-          <Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
-          <Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
-          <Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
-          <Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
+          <Image src={'images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
+          <Image src={'images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
+          <Image src={'images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
+          <Image src={'images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
         </TopColumn>
         <BottomColumn>
-          <Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
-          <Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
-          <Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
-          <Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
+          <Image src={'images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41'  />
+          <Image src={'images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44'  />
+          <Image src={'images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43'  />
+          <Image src={'images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45'  />
         </BottomColumn>
       </RightColumn>
     </Grid>

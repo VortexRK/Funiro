@@ -19,13 +19,13 @@ const GallerySlider = props => {
         speed={800}
         preloadImages={false}
       >
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44' /></SwiperSlide>
-        <SwiperSlide><Image src={'/images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_37.jpg'} alt='Rectangle_37' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_38.jpg'} alt='Rectangle_38' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_39.jpg'} alt='Rectangle_39' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_41.jpg'} alt='Rectangle_41' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_43.jpg'} alt='Rectangle_43' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_44.jpg'} alt='Rectangle_44' /></SwiperSlide>
+        <SwiperSlide><Image src={'images/Gallery/Rectangle_45.jpg'} alt='Rectangle_45' /></SwiperSlide>
       </Swiper>
     </div>
   )

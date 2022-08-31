@@ -12,20 +12,20 @@ const Products = props => {
   const {searchInput, innerWidth} = useContext(Context)
 
   const products = [
-    { id: 1, image: '/images/Syltherine.jpg', name: 'Syltherine', description: 'Stylish cafe chair', price: '123451234', discount: '30%', isNew: false },
-    { id: 2, image: '/images/Lolito.jpg', name: 'Lolito', description: 'Luxury big sofa', price: '123451234', discount: '', isNew: false },
-    { id: 3, image: '/images/Respira.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', discount: '20%', isNew: false },
-    { id: 4, image: '/images/Grifo.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', discount: '', isNew: true },
-    { id: 5, image: '/images/Muggo.jpg', name: 'Muggo', description: 'Small mug', price: '123451234', discount: '', isNew: true },
-    { id: 6, image: '/images/Pingky.jpg', name: 'Pingky', description: 'Cute bed set', price: '123451234', discount: '10%', isNew: false },
-    { id: 7, image: '/images/Potty.jpg', name: 'Potty', description: 'Minimalist flower pot', price: '123451234', discount: '', isNew: false },
-    { id: 8, image: '/images/Syltherine.jpg', name: 'Syltherine', description: 'Stylish cafe chair', price: '123451234', discount: '15%', isNew: false },
-    { id: 9, image: '/images/Lolito.jpg', name: 'Lolito', description: 'Luxury big sofa', price: '123451234', discount: '25%', isNew: false },
-    { id: 10, image: '/images/Respira.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', discount: '15%', isNew: false },
-    { id: 11, image: '/images/Grifo.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', discount: '', isNew: false },
-    { id: 12, image: '/images/Muggo.jpg', name: 'Muggo', description: 'Small mug', price: '123451234', discount: '30%', isNew: false },
-    { id: 13, image: '/images/Pingky.jpg', name: 'Pingky', description: 'Cute bed set', price: '123451234', discount: '30%', isNew: false },
-    { id: 14, image: '/images/Potty.jpg', name: 'Potty', description: 'Minimalist flower pot', price: '123451234', discount: '', isNew: true },
+    { id: 1, image: 'images/Syltherine.jpg', name: 'Syltherine', description: 'Stylish cafe chair', price: '123451234', discount: '30%', isNew: false },
+    { id: 2, image: 'images/Lolito.jpg', name: 'Lolito', description: 'Luxury big sofa', price: '123451234', discount: '', isNew: false },
+    { id: 3, image: 'images/Respira.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', discount: '20%', isNew: false },
+    { id: 4, image: 'images/Grifo.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', discount: '', isNew: true },
+    { id: 5, image: 'images/Muggo.jpg', name: 'Muggo', description: 'Small mug', price: '123451234', discount: '', isNew: true },
+    { id: 6, image: 'images/Pingky.jpg', name: 'Pingky', description: 'Cute bed set', price: '123451234', discount: '10%', isNew: false },
+    { id: 7, image: 'images/Potty.jpg', name: 'Potty', description: 'Minimalist flower pot', price: '123451234', discount: '', isNew: false },
+    { id: 8, image: 'images/Syltherine.jpg', name: 'Syltherine', description: 'Stylish cafe chair', price: '123451234', discount: '15%', isNew: false },
+    { id: 9, image: 'images/Lolito.jpg', name: 'Lolito', description: 'Luxury big sofa', price: '123451234', discount: '25%', isNew: false },
+    { id: 10, image: 'images/Respira.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', discount: '15%', isNew: false },
+    { id: 11, image: 'images/Grifo.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', discount: '', isNew: false },
+    { id: 12, image: 'images/Muggo.jpg', name: 'Muggo', description: 'Small mug', price: '123451234', discount: '30%', isNew: false },
+    { id: 13, image: 'images/Pingky.jpg', name: 'Pingky', description: 'Cute bed set', price: '123451234', discount: '30%', isNew: false },
+    { id: 14, image: 'images/Potty.jpg', name: 'Potty', description: 'Minimalist flower pot', price: '123451234', discount: '', isNew: true },
   ]
 
   const filteredProduct = products.filter((product) => {
