@@ -11,10 +11,10 @@ import 'swiper/modules/pagination/pagination.scss'
 
 const TopContent = props => {
   const products = [
-    { id: 1, image: '/images/TopContent/Rectangle_47.jpg', name: 'Bohauss', description: 'Luxury big sofa 2-seat', price: '17000000', },
-    { id: 2, image: '/images/TopContent/123.jpg', name: 'Forest', description: 'winter forest', price: '123451234', },
-    { id: 3, image: '/images/TopContent/Rectangle_49.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', },
-    { id: 4, image: '/images/TopContent/Rectangle_48.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', },
+    { id: 1, image: 'images/TopContent/Rectangle_47.jpg', name: 'Bohauss', description: 'Luxury big sofa 2-seat', price: '17000000', },
+    { id: 2, image: 'images/TopContent/123.jpg', name: 'Forest', description: 'winter forest', price: '123451234', },
+    { id: 3, image: 'images/TopContent/Rectangle_49.jpg', name: 'Respira', description: 'Minimalist fan', price: '123451234', },
+    { id: 4, image: 'images/TopContent/Rectangle_48.jpg', name: 'Grifo', description: 'Night lamp', price: '123451234', },
   ]
 
   return (
