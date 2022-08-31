@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Funiro/static/css/main.a0d09b2e.chunk.css",
-    "main.js": "/Funiro/static/js/main.64f580c5.chunk.js",
-    "main.js.map": "/Funiro/static/js/main.64f580c5.chunk.js.map",
+    "main.js": "/Funiro/static/js/main.aeb51d77.chunk.js",
+    "main.js.map": "/Funiro/static/js/main.aeb51d77.chunk.js.map",
     "runtime-main.js": "/Funiro/static/js/runtime-main.ceb50a76.js",
     "runtime-main.js.map": "/Funiro/static/js/runtime-main.ceb50a76.js.map",
     "static/css/2.4c026eb9.chunk.css": "/Funiro/static/css/2.4c026eb9.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.4c026eb9.chunk.css",
     "static/js/2.2c2558c4.chunk.js",
     "static/css/main.a0d09b2e.chunk.css",
-    "static/js/main.64f580c5.chunk.js"
+    "static/js/main.aeb51d77.chunk.js"
   ]
 }
