@@ -8,29 +8,29 @@ const initialState = {
 const cart = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_TO_CART': {
-      const isHas = state.cart.products.find(el => el.id === action.payload.id)
-      if (!!isHas) {
-        state.cart.products.forEach(el => {
-          if (el.id === action.payload.id) el.quantity = el.quantity + 1
-        })
+      const helper = state.cart.products.map(product => { return {...product }})
+      const product = helper.find(el => el.id === action.payload.id)
+      if (!!product) {
+        product.quantity = product.quantity + 1
       }
       return {
         ...state,
         cart: {
           ...state.cart,
           counter: state.cart.counter + 1,
-          products: isHas ? [...state.cart.products] : [...state.cart.products, action.payload]
+          products: product ? [...helper] : [...helper, action.payload]
         }
       }
     }
     case 'DELETE_FROM_CART': {
-      const element = state.cart.products.find(el => el.id === action.payload)
-      let helper = null
-      if (element.quantity > 1) {
+      const helper = state.cart.products.map(product => { return {...product }})
+      const product = helper.find(el => el.id === action.payload)
+      let filteredArray = null
+      if (product.quantity > 1) {
 
-        element.quantity = element.quantity - 1
+        product.quantity = product.quantity - 1
       } else {
-        helper = state.cart.products.filter(el => el.id !== action.payload)
+        filteredArray = helper.filter(el => el.id !== action.payload)
       }
 
       return {
@@ -38,7 +38,7 @@ const cart = (state = initialState, action) => {
         cart: {
           ...state.cart,
           counter: state.cart.counter - 1,
-          products: helper != null ? [...helper] : [...state.cart.products]
+          products: filteredArray != null ? [...filteredArray] : [...helper]
         }
       }
     }

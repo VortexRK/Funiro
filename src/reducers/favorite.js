@@ -3,7 +3,6 @@ const initialState = {
     counter: 0,
     products: [],
    },
-  cart: { }
 }
 
 const favorite = (state = initialState, action) => {
