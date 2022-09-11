@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/Funiro/static/css/main.a0d09b2e.chunk.css",
-    "main.js": "/Funiro/static/js/main.aeb51d77.chunk.js",
-    "main.js.map": "/Funiro/static/js/main.aeb51d77.chunk.js.map",
+    "main.js": "/Funiro/static/js/main.c8135c25.chunk.js",
+    "main.js.map": "/Funiro/static/js/main.c8135c25.chunk.js.map",
     "runtime-main.js": "/Funiro/static/js/runtime-main.ceb50a76.js",
     "runtime-main.js.map": "/Funiro/static/js/runtime-main.ceb50a76.js.map",
     "static/css/2.4c026eb9.chunk.css": "/Funiro/static/css/2.4c026eb9.chunk.css",
-    "static/js/2.2c2558c4.chunk.js": "/Funiro/static/js/2.2c2558c4.chunk.js",
-    "static/js/2.2c2558c4.chunk.js.map": "/Funiro/static/js/2.2c2558c4.chunk.js.map",
+    "static/js/2.37b9ab73.chunk.js": "/Funiro/static/js/2.37b9ab73.chunk.js",
+    "static/js/2.37b9ab73.chunk.js.map": "/Funiro/static/js/2.37b9ab73.chunk.js.map",
     "index.html": "/Funiro/index.html",
     "static/css/2.4c026eb9.chunk.css.map": "/Funiro/static/css/2.4c026eb9.chunk.css.map",
     "static/css/main.a0d09b2e.chunk.css.map": "/Funiro/static/css/main.a0d09b2e.chunk.css.map",
-    "static/js/2.2c2558c4.chunk.js.LICENSE.txt": "/Funiro/static/js/2.2c2558c4.chunk.js.LICENSE.txt",
+    "static/js/2.37b9ab73.chunk.js.LICENSE.txt": "/Funiro/static/js/2.37b9ab73.chunk.js.LICENSE.txt",
     "static/media/Ellipse.b6661b6f.svg": "/Funiro/static/media/Ellipse.b6661b6f.svg",
     "static/media/t.e3b74804.svg": "/Funiro/static/media/t.e3b74804.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ceb50a76.js",
     "static/css/2.4c026eb9.chunk.css",
-    "static/js/2.2c2558c4.chunk.js",
+    "static/js/2.37b9ab73.chunk.js",
     "static/css/main.a0d09b2e.chunk.css",
-    "static/js/main.aeb51d77.chunk.js"
+    "static/js/main.c8135c25.chunk.js"
   ]
 }
