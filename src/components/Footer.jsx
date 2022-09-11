@@ -106,37 +106,6 @@ Footer.propTypes = {
 
 const Content = styled.div`
   width: ${props => props.width ? `${props.width}px` : ''};
-  margin-bottom: 30px;
-
-  :not(:last-child) {
-     margin-right: 35px;
-  }
-
-  @media (max-width: 1083px) {
-    :not(:last-child) {
-      margin-right: 50px;
-    }
-    :nth-child(4) {
-      margin-right: 0;
-    }
-  }
-
-  @media (max-width: 634px) {
-    :not(:last-child) {
-      margin-right: 50px;
-    }
-
-    :nth-child(2) {
-      margin-right: 60px;
-    }
-    :nth-child(4) {
-      margin-right: 0px;
-    }
-  }
-
-  @media (max-width: 505px) {
-    margin-bottom: 10px;
-  }
 `
 
 const HeaderWrapper = styled.div`
@@ -167,7 +136,7 @@ const Arrow = styled.div`
 
   @media (max-width: 505px) {
     display: block;
-  }
+  } 
 `
 
 const Text2 = styled.p`
@@ -217,23 +186,32 @@ const Submit = styled.input`
 `
 
 const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
   max-width: 1238px;
-  background-color: #ffffff;
-  flex-wrap: wrap;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 35px;
+  justify-content: center;
 
-  @media (max-width: 505px) {
-    flex-direction: column;
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 805px) {
+    grid-template-columns: 294px 150px;
     justify-content: center;
   }
+
+  @media (max-width: 505px) {
+    grid-template-columns: 1fr;
+  }
 `
+
 export default styled(Footer)`
   width: 100%;
   padding: 80px 20px 50px;
 
   @media (max-width: 505px) {
-    padding-top: 45px;
+    padding-top: 35px;
   }
 `
